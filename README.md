@@ -1,3 +1,5 @@
+# My MEAN STACK summer project, it is focused on the especially backend stuff with mangoDB and NodeJS (Express), for frontend angular is used.
+
 # Angularproject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
