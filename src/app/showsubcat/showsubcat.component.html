@@ -1,0 +1,33 @@
+<div class="container">
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a [routerLink]="['/sitehome']" routerLinkActive="router-link-active" >Home</a>
+      </li>
+      <li class="breadcrumb-item">
+          <a [routerLink]="['/showcat']" routerLinkActive="router-link-active" >Categories</a>
+        </li>
+			<li class="breadcrumb-item active" aria-current="page">Sub-Categories</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+
+
+    <section class="news py-5" id="news">
+        <h2 id="cen"> <strong>Select Sub-categories</strong></h2> <br> <br>
+		<div class="row news-grids">
+      <div class="row card-group">
+				<div class="col-4" *ngFor="let x of allSubcat">
+					<a routerLink="/showproducts" [queryParams]="{subcatid:x._id}">
+					<img src="/uploads/{{x.Subcatpic}}" alt="subcat" class="img-fluid">
+						<h4 class="mt-4">{{x.Subcatname | uppercase}}</h4> </a>
+					<p class="mt-3"></p>
+        </div>
+      </div>
+      </div>
+      </section>
+    </div>
+

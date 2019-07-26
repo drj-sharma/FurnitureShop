@@ -1,0 +1,28 @@
+<div class="checkout">
+  <div class="container">
+      <div class="checkout-right">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Product No.</th>
+                      <th>Picture</th>
+                      <th>Name</th>
+                      <th>Rate</th>
+                      <th>Quantity</th>
+                      <th>Total Cost</th>
+
+                  </tr>
+              </thead>
+              <tr class="rem1" *ngFor="let x of orders;let i=index">
+                  <td class="invert">{{i+1}}</td>
+
+                  <td class="invert"><img src="uploads/{{x.ppic}}" height="75"></td>
+                  <td class="invert">{{x.pname}}</td>
+                  <td class="invert">₹{{x.prate | number:'.1-5'}}</td>
+                  <td class="invert">{{x.qty}}</td>
+                  <td class="invert">₹{{x.tc | number:'.1-5'}}</td>
+                </tr>
+          </table>
+      </div>
+     </div>
+  </div>

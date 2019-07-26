@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="checkout-right">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>SL No.</th>
+                  <th>Order Number</th>
+                  <th>Payment Mode</th>
+                  <th>Address</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+          <tr class="rem1" *ngFor="let x of orders;let i=index">
+              <td class="invert">{{i+1}}</td>
+              <td class="invert"> <a [routerLink]="['/orderdetails']" routerLinkActive="router-link-active" [queryParams]="{orderid:x._id}">{{x._id}} </a></td>
+              <td class="invert">{{x.paymentmode}}</td>
+              <td class="invert">{{x.address}}</td>
+              <td class="invert">{{x.orderdate | date}}</td>
+              <td class="invert">{{x.orderamount}}</td>
+              <td class="invert">{{x.status}}</td>
+            </tr>
+      </table>
+  </div>
+</div>
+

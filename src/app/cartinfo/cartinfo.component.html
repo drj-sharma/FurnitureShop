@@ -1,0 +1,58 @@
+<div class="checkout">
+  <div class="container"> <br> <br>
+    <h2>Your shopping cart contains: <span>{{prodCount}} Products</span></h2> <br> <br>
+    <div class="table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>SL No.</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let x of cart; let i = index" class="rem1">
+          <td class="invert"> <span class="badge badge-primary badge-pill ">
+              <h5>{{i + 1}}</h5>
+            </span></td>
+          <td class="invert-image"><a href=""><img src="uploads/{{x.ppic}}" alt=" " height="70" class="img-responsive" /></a></td>
+          <td class="invert">
+             <div class="quantity">
+              <div class="quantity-select">
+                  <span class="badge badge-primary badge-pill ">
+                <h5>{{x.qt}}</h5>
+              </span>
+              </div>
+            </div>
+          </td>
+          <td class="invert">{{x.pname}}</td>
+          <td class="invert">₹{{x.tc}}</td>
+          <td class="invert">
+            <div class="rem">
+              <div>
+                <i id="cur" class="fa fa-trash fa-lg" aria-hidden="true" (click)="onProdcart(x._id)"></i>
+                 </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="checkout-left">
+				<div class="checkout-left-basket">
+
+					<ul class="list-group"S>
+            <li class="list-group-item active"> Total Bill</li>
+						<li class="list-group-item" *ngFor="let item of cart">{{item.pname}} <i>-</i> <span> &nbsp; ₹{{item.tc}}</span></li> <hr>
+            <li>Total <i>-</i> <span>₹{{gtotal}}</span></li>
+          </ul>
+          <a routerLink="/checkout"><button class="btn btn-outline-success"><h4>Continue to Pay</h4></button></a>
+				</div> <br>
+				<div class="checkout-right-basket">
+					<a routerLink="/showcat"><button class="btn btn-outline-success pull-right" aria-hidden="true">Continue Shopping</button></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+    </div>
+  </div>
+</div>

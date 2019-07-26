@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 id="cen"> <br> <strong>You searched for  <span style="color: green">" {{srch}} "</span></strong></h2>
+<section class="news py-5" id="news">
+  <div class="row news-grids">
+    <div class="row card-group">
+      <div class="col-3" *ngFor="let x of searchProducts">
+        <a routerLink="/productdetail" [queryParams]="{prodid:x._id}">
+        <img src="/uploads/{{x.Image}}" alt="cat" class="img-fluid">
+          <p class="mt-4"> {{x.Name | uppercase}}</p> </a>
+        <p class="mt-3"></p>
+      </div>
+      <h2 id="cen">{{msg1}} </h2>
+    </div>
+    </div>
+    <!-- <button (click)="refresh()">Refresh</button> -->
+</section>
+</div>

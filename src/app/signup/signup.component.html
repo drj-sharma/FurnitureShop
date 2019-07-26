@@ -1,0 +1,93 @@
+<section class="login py-5">
+	<div class="container">
+		<h3 class="heading mb-sm-5 mb-4 text-center">Create An Account</h3>
+
+		<div class="login-form">
+			<form action="#" method="post">
+				<div class="row">
+					<div class="col-md-4 text-md-right">
+						<label>Your Full Name:</label>
+					</div>
+					<div class="col-md-8">
+            <input type="text" placeholder="enter your name" name="nm" [(ngModel)]="fullname" required pattern="[a-zA-Z][a-zA-Z]*" #name="ngModel">
+          <span class="error" *ngIf="name.touched && name.invalid && name.errors.required">
+            must be filled
+          </span>
+          <span class="error" *ngIf="name.touched && name.invalid && name.errors.pattern">
+            Please Enter an valid name </span>
+        </div>
+      </div>
+
+        <div class="row mt-3">
+        <div class="col-md-4 text-md-right">
+            <label>Gender:</label>
+        </div>
+
+            <div class="col-md-8">
+
+            <input type="radio" name="gen" id="male" value="Male" [(ngModel)]="gender" #gen1 = "ngModel">
+            <label for="male">Male</label> &nbsp;
+
+            <input type="radio" name="gen" id="female" value="Female" [(ngModel)]="gender" #gen1 = "ngModel">
+            <label for="female">Female</label>
+            <span *ngIf="gen1.touched && gen1.invalid"> gender</span>
+        </div>
+      </div>
+
+				<div class="row mt-3">
+					<div class="col-md-4 text-md-right">
+						<label>Email Address:</label>
+					</div>
+					<div class="col-md-8">
+            <input type="email" placeholder="enter your email id (Username)" required name="em" [(ngModel)]="email"
+            required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,3})$" #email1 = "ngModel">
+   <span class="error" *ngIf="email1.touched && email1.invalid && email1.errors.required">must be filled</span>
+   <span class="error" *ngIf="email1.touched && email1.invalid && email1.errors.pattern">Please enter a valid email</span>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-4 text-md-right">
+						<label>Phone Number:</label>
+					</div>
+					<div class="col-md-8">
+            <input type="text" placeholder="enter your phone number" required="" name="ph" [(ngModel)]="phone"
+            required pattern="^\+?\d{2}[-]?\d{10}$" minlength="10" #phonenum = "ngModel">
+
+            <span class="error" *ngIf="phonenum.touched && phonenum.invalid && phonenum.errors.required">
+     must be filled</span> <br>
+     <span class="error" *ngIf="phonenum.pristine && phonenum.invalid && phonenum.errors.pattern">
+       Please match with pattern eg. +91-9999999999</span> <br>
+
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-4 text-md-right">
+						<label>Password:</label>
+          </div>
+          <div>
+          </div>
+					<div class="col-md-8">
+            <input type="password" placeholder="Enter your Password" required="" name="pass" [(ngModel)]="pass"
+            required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$" #password1 = "ngModel"> <br>
+          <span class="error" *ngIf="password1.touched && password1.invalid && password1.errors.required"> must be filled</span>
+          <span class="error" *ngIf="password1.touched && password1.errors.pattern"> Password must have at least 1 small, 1 capital, 1 number, 1 special character</span>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-8 offset-md-4">
+						<button class="btn" name="signBtn" (click)="onSignup()">Create Account</button>
+					</div>
+        </div>
+        <h4 *ngIf="vis1" style="color: red"  >
+        {{msg}}
+      </h4>
+      <h4 *ngIf="!vis1" style="color: green" >
+        {{msg}}
+      </h4>
+
+			</form>
+    </div>
+
+
+	</div>
+</section>

@@ -1,0 +1,77 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-agile mt-4">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/adminpanel">Home</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page"> Add/Update Categories</li>
+    </ol>
+  </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- manage categories -->
+<section class="login py-5">
+  <div class="container">
+    <h3 class="heading mb-sm-5 mb-4 text-center">Add/Update Categories</h3>
+
+    <div class="login-form">
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Category: </label>
+          </div>
+          <div class="col-md-8">
+            <input type="text" placeholder="Enter Category" required="" name="cname" [(ngModel)]="catname">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4 text-md-right">
+          </div>
+          <div class="col-md-8">
+            <input type="file" name="catpic" (change)="fileSelected($event)">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4 text-md-right">
+          </div>
+          <span *ngIf="!vis">
+        <div class="row mt-3">
+          <div class="col-md-8 offset-md-4">
+            <button class="btn" name="submitcat" (click)="onSubmitcat()">Submit</button>
+          </div>
+        </div>
+        </span>
+        <span *ngIf="vis">
+            <img src="uploads/{{catpic}}" height="100"> <br>
+        <div class="row mt-3">
+          <div class="col-md-8 offset-md-4">
+            <button class="btn" name="updatecat" (click)="onCatupdatedb()">Update</button>
+          </div>
+        </div>
+      </span>
+        </div>
+      </form>
+      {{msg}}
+    </div> <br> <br><br>
+    <h4 id="cen">Already Added Categories!</h4> <br>
+  <table class="table table-striped">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let x of allCat">
+      <td><img src="uploads/{{x.Catpic}}" height="60"></td> <!-- add uploads folder to angular.json in assets array -->
+      <td>{{x.Catname}}</td>
+      <td><a routerLink="#" (click)="onCatupdate(x._id, x.Catname, x.Catpic)">
+        <button type="button" class="btn btn-primary">Update</button></a></td>
+      <td><button type="button" class="btn btn-danger" (click)="onDel(x._id)">Delete</button></td>
+    </tr>
+  </table>
+
+  </div>
+</section>
+<!-- manage catagories -->

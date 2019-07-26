@@ -1,0 +1,38 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-agile mt-4">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/adminpanel">Home</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page"> All Users</li>
+    </ol>
+  </div>
+</div>
+<!-- breadcrumb -->
+
+<section class="login py-5">
+    <div class="container">
+      <h3 class="heading mb-sm-5 mb-4 text-center">All Member List</h3>
+      <div>
+        {{msg}}
+          <table class="table" style="border-block-style: groove">
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let x of userDetails">
+                <td>{{x.Name}}</td>
+                <td>{{x.Phone}}</td>
+                <td>{{x.Username}}</td>
+                <td>{{x.Gender}}</td>
+                <td><a class="btn btn-danger" (click)="userDelete(x._id)">
+                    <i class="fa fa-trash-o fa-lg"></i> Delete</a ></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+</section>

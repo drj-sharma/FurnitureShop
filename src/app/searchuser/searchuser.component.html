@@ -1,0 +1,47 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-agile mt-4">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/adminpanel">Home</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page"> Search User</li>
+    </ol>
+  </div>
+</div>
+<!-- breadcrumb -->
+
+<div class="container">
+  <h3 class="heading mb-sm-5 mb-4 text-center">Search User by email</h3>
+
+  <div class="login-form">
+    <form action="#" method="post">
+      <div class="row">
+        <div class="col-md-4 text-md-right">
+          <label>Email:</label>
+        </div>
+        <div class="col-md-8">
+          <input type="email" placeholder="Enter your email-id" required="" name="em" [(ngModel)]="email">
+        </div>
+      </div>
+        <div class="col-md-4 text-md-right">
+        </div>
+      <div class="row mt-3">
+        <div class="col-md-8 offset-md-4">
+          <button class="btn" name="searchuser" (click)="onSearchuser()">Search</button>
+        </div>
+      </div>
+      <strong> <em> <h6>{{msg}} </h6> </em></strong>
+      <span *ngIf="vis; then showDetails"> </span>
+          <ng-template #showDetails>
+        <ul> <br>
+          <li class="list-group-item active" style="text-align: center"> <h2>Details</h2></li> <br>
+          <li class="list-group-item">Name: {{name}}</li> <br>
+          <li class="list-group-item">Gender: {{gen}}</li> <br>
+          <li class="list-group-item">Phone: {{ph}}</li> <br>
+          <li class="list-group-item">Email: {{em}}</li> <br>
+        </ul>
+      </ng-template>
+    </form>
+  </div>
+</div>

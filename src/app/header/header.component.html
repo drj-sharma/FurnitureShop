@@ -1,0 +1,57 @@
+<!-- //header -->
+<header class="py-sm-3 pt-3 pb-2" id="home">
+	<div class="container">
+		<!-- nav -->
+		<div class="top d-md-flex">
+			<div id="logo"> <br>
+        <h3> <a routerLink="sitehome"><span class="fa fa-meetup">furniture app</span></a></h3>
+      </div>
+			<div class="search-form mx-md-auto">
+				<div class="n-right-w3ls">
+					<form action="#" method="post" class="newsletter">
+						<input class="search" type="text" placeholder="Search..." name="search" [(ngModel)]="search" required=""><a routerLink="/queryinput" [queryParams]="{query: search}"><span class="fa fa-search"></span></a>
+          </form>
+				</div>
+			</div>
+			<div class="forms mt-md-0 mt-8">
+        <ul>
+        <li *ngIf="vis"> <a [routerLink]="[ '/signup' ]" class="btn"><span class="fa fa-pencil-square-o"></span> Create Account</a> </li>
+        <li *ngIf="vis"> <a [routerLink]="[ '/login' ]" routerLinkActive="active" class="btn"><span class="fa fa-user-circle-o"></span> Log in</a> </li>
+      </ul>
+
+      <div class="forms mt-md-0 mt-8">
+      <ul *ngIf="!vis">
+        <li class="dropdown">
+        <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-user-circle fa-2x"></i></a>
+      <ul class="dropdown-menu dropdown-menu-center" role="listbox">
+          <li> <a [routerLink]="[ '/editprofile' ]" routerLinkActive="active" class="btn"><span class="fa fa-edit"></span>Edit Profile</a> </li>
+        <li> <a [routerLink]="[ '/ordernumber' ]" routerLinkActive="active" class="btn"><span class="fa fa-history"></span>Order History</a> </li>
+        <li> <a [routerLink]="[ '/changepass' ]" class="btn"><span class="fa fa-key"></span> Change Password</a> </li>
+        <li> <a [routerLink]="['']" class="btn" (click)="onLogout()"><span class="fa fa-sign-out"></span> Logout</a> </li>
+      </ul>
+    </li>
+    </ul><h6>&nbsp;Welcome, <i>{{name}}</i></h6>
+      <span *ngIf="!vis"><a [routerLink]="[ '/cartinfo' ]" class="btn"><span class="fa fa-shopping-cart fa-lg"></span></a>  </span>
+      </div>
+    </div>
+  </div>
+		<nav class="text-center">
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu">
+				<li class="mr-lg-4 mr-2"><a [routerLink]="['/sitehome']" routerLinkActive="router-link-active" >Home</a></li>
+				<li class="mr-lg-4 mr-2"><a [routerLink]="['/aboutus']" routerLinkActive="router-link-active">About Us</a>
+				<li class="mr-lg-4 mr-2"><a [routerLink]="['/showcat']" routerLinkActive="router-link-active">Categories</a></li>
+        <li class="mr-lg-4 mr-2"><a [routerLink]="['/contactus']" routerLinkActive="router-link-active">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- //nav -->
+    <div *ngIf="vis2">
+      <button class="btn btn-outline-warning btn-lg" (click)="backAdminbtn()">AdminHome</button>
+  </div>
+  </div>
+</header>
+
+
+
+

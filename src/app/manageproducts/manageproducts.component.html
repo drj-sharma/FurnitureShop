@@ -1,0 +1,130 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-agile mt-4">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/adminpanel">Home</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page"> Add/Update Products</li>
+    </ol>
+  </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- manage categories -->
+<section class="login py-5">
+  <div class="container">
+    <h3 class="heading mb-sm-5 mb-4 text-center">Add/Update Products</h3>
+
+    <div class="login-form">
+      <form action="#" method="post" class="form-control">
+          <select name="catid" [(ngModel)]="catg" class="form-control" (change)="fetchSubData()">
+            <option value="">Choose Category</option>
+            <option *ngFor="let x of allCat" value="{{x._id}}"> {{x.Catname}} </option>
+          </select> <br>
+          <select name="catid" [(ngModel)]="subcatg" class="form-control" (change)="fetchProducts()">
+            <option value="">Choose Sub-Category</option>
+            <option *ngFor="let i of allSubcat" value="{{i._id}}"> {{i.Subcatname}} </option>
+          </select> <br>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Product Name:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="text" placeholder="Enter Product Name" required="" name="scname" [(ngModel)]="pname">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Price:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="number" placeholder="Enter Price" required="" name="price" [(ngModel)]="price">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Discount:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="number" placeholder="Discount" required="" name="pdiscount" [(ngModel)]="discount">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Discription:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="text" placeholder="Discription" required="" name="discription" [(ngModel)]="descp">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Stock:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="number" name="stock" placeholder="Stock" required="" [(ngModel)]="stock">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-md-right">
+            <label>Image of Product:</label>
+          </div>
+          <div class="col-md-8">
+            <input type="file" name="prodpic" (change)="fileSelected($event)">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4 text-md-right">
+          </div>
+          <div *ngIf="!updateON">
+        <div class="row mt-3">
+          <div class="col-md-8 offset-md-4">
+            <button class="btn" name="submitcat" (click)="onProductadd()">Submit</button>
+          </div>
+        </div>
+      </div>
+        <div *ngIf="updateON">
+          <img src="uploads/{{image}}" height="100"> <br>
+      <div class="row mt-3">
+        <div class="col-md-8 offset-md-4">
+          <button class="btn" name="updateProduct" (click)="onProductdb()">Update</button>
+        </div>
+      </div>
+    </div>
+       </div>
+      </form>
+      {{msg}}
+    </div>
+
+    <div *ngIf="vis1">
+      <h4 id="cen">Already Added Products</h4> <br>
+    <table class="table table-striped">
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let prod of allProducts">
+        <td>
+          <img src="uploads/{{prod.Image}}" height="60"> <!-- add uploads folder to angular.json in assets array -->
+        </td>
+        <td>
+          {{ prod.Name }}
+        </td>
+        <td>
+          <a routerLink="#" (click)="onProductUpdate(prod)">
+          <button type="button" class="btn btn-primary">Update</button></a>
+        </td>
+        <td>
+          <a routerLink="#" (click)="onDel(prod._id)">
+          <button type="button" class="btn btn-danger">Delete</button></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  </div>
+</section>
+<!-- manage catagories -->

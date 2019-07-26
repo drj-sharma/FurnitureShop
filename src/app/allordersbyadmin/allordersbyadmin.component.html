@@ -1,0 +1,30 @@
+  <div class="container">
+      <div class="checkout-right">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>SL No.</th>
+                      <th>Order Number</th>
+                      <th>Username</th>
+                      <th>Payment Mode</th>
+                      <th>Address</th>
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+
+                  </tr>
+              </thead>
+              <tr class="rem1" *ngFor="let x of orders;let i=index">
+                  <td>{{i+1}}</td>
+                  <td> <a [routerLink]="['/orderdetailbyadmin']" routerLinkActive="router-link-active" [queryParams]="{orderid:x._id}">{{x._id}} </a></td>
+                  <td>{{x.username}}</td>
+                  <td>{{x.paymentmode}}</td>
+                  <td>{{x.address}}</td>
+                  <td>{{x.orderdate | date}}</td>
+                  <td>{{x.orderamount | currency: 'INR':true}}</td>
+                  <td>{{x.status}} <br> <button class="btn btn-warning btn-sm"> <a [routerLink]="['/updatestatus']" routerLinkActive="router-link-active" [queryParams]="{orderid:x._id, st: x.status}"><i class="fa fa-edit fa-black">update</i></a></button></td>
+                </tr>
+          </table>
+      </div>
+     </div>
+

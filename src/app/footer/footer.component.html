@@ -1,0 +1,114 @@
+<!-- footer -->
+<footer class="footer py-5">
+	<div class="container py-md-3">
+		<div class="footer-grid_section text-center">
+			<div class="footer-title mb-3">
+				<h2> <a href="index.html"><span class="fa fa-meetup"></span> Furnish</a></h2>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-lg-4 mb-lg-0 mb-4 footer-top">
+				<h4 class="mb-4 w3f_title text-uppercase">Contact Info</h4>
+				<div class="footer-style-w3ls my-2">
+					<p> </p>
+				</div>
+				<div class="footer-style-w3ls my-2">
+					<p> <a href="tel:+919041670104">+91-9041670104</a> </p>
+				</div>
+				<div class="footer-style-w3ls">
+					<p> <a href="mailto:dheerajsharma9499@gmail.com">info@examplemail.com</a></p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-6 footv3-left">
+				<h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Company</h4>
+				<ul class="list-agileits">
+					<li class="my-2">
+						<a routerLink="/aboutus">
+							About Us
+						</a>
+					</li>
+					<li class="mb-2">
+						<a [routerLink]="['/termofuse']" routerLinkActive="router-link-active">
+              Terms of use
+          </a>
+					</li>
+					<li class="my-2">
+            	<a [routerLink]="['/privacy-policy']" routerLinkActive="router-link-active">
+							Privacy Ploicy
+						</a>
+					</li>
+					<li>
+						<a routerLink="/contactus">
+							Get In Touch
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-2 col-md-3 col-6">
+				<h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Categories</h4>
+				<ul class="list-agileits">
+					<li class="my-2">
+						<a routerLink="/showsubcat" [queryParams]="{catid: chairId}">
+							Furniture Chairs
+						</a>
+					</li>
+					<li class="my-2">
+						<a routerLink="/showsubcat" [queryParams]="{catid: diningId}">
+							Dining Tables
+						</a>
+					</li>
+					<li class="my-2">
+            <a routerLink="/showsubcat" [queryParams]="{catid: sofaId}">
+              Sofas
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-lg-2 col-md-3 col-6 mt-md-0 mt-sm-5 mt-4">
+				<h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Resources</h4>
+				<ul class="list-agileits">
+					<li class="my-2">
+						<a href="#">
+							Getting Started
+						</a>
+					</li>
+					<li class="mb-2">
+						<a href="#">
+							Best Collections
+						</a>
+					</li>
+					<li class="my-2">
+						<a routerLink="/showcat">
+							All Categories
+						</a>
+					</li>
+					<li class="my-2">
+						<a href="#">
+							24/7 Support
+						</a>
+					</li>
+					<li>
+						<a routerLink="/aboutus">
+							Contact for Help
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-lg-2 col-md-3 col-6 mt-md-0 mt-sm-5 mt-4">
+				<h4 class="mb-md-4 mb-3 w3f_title text-uppercase">Wikipedia</h4>
+				<ul class="list-agileits">
+					<li class="my-2">
+						<a href="https://www.wikipedia.com">
+							Info
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!-- //footer bottom -->
+</footer>
+<!-- //footer -->

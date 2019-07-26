@@ -1,0 +1,58 @@
+<div class="container">
+<section class="news py-5" id="news">
+  <div class="row news-grids">
+    <div class="row card-group">
+      <div class="col-12">
+        <a routerLink="/showsubcat" [queryParams]="{catid: id}">
+        <img src="/uploads/sofaoffer.jpg" alt="cat" class="img-fluid">
+          <h6 class="mt-4"></h6> </a> <br> <hr>
+        <p class="mt-3"></p>
+      </div>
+    </div>
+    </div>
+  </section>
+  <h3 id="cen"> <strong>Office Chairs</strong></h3>
+    <section class="news py-5" id="news">
+      <div class="row news-grids">
+        <div class="row card-group">
+          <div class="col-3" *ngFor="let x of allProducts">
+            <a routerLink="/productdetail" [queryParams]="{prodid:x._id}">
+            <img src="/uploads/{{x.Image}}" alt="cat" class="img-fluid">
+              <p class="mt-4" style="font-size: 13px;"> <strong> {{x.Name | uppercase}} </strong></p> </a>
+          </div>
+        </div>
+        </div>
+
+</section> <hr> <br>
+<section class="news py-5" id="news">
+    <h3 id="cen"><strong>Beds</strong></h3> <br> <br>
+        <div class="row news-grids">
+          <div class="row card-group">
+            <div class="col-6" *ngFor="let x of allProducts1">
+              <a routerLink="/productdetail" [queryParams]="{prodid:x._id}">
+              <img src="/uploads/{{x.Image}}" alt="cat" class="img-fluid">
+                <p class="mt-4" style="font-size: 13px;"><strong> {{x.Name | uppercase}} </strong></p> </a>
+                <!-- <span style="color: green">{{x.Price | currency:'INR'}}</span> -->
+              <p class="mt-3"></p>
+            </div>
+          </div>
+        </div>
+ </section>
+
+ <section class="news py-5" id="news">
+  <h3 id="cen"><strong>Wardrobes</strong></h3> <br> <br>
+      <div class="row news-grids">
+        <div class="row card-group">
+          <div class="col-4" *ngFor="let x of allProducts2">
+            <a routerLink="/productdetail" [queryParams]="{prodid:x._id}">
+            <img src="/uploads/{{x.Image}}" alt="cat" class="img-fluid">
+              <p class="mt-4" style="font-size: 13px;"><strong> {{x.Name | uppercase}} </strong></p> </a>
+              <!-- <span style="color: green">{{x.Price | currency:'INR'}}</span> -->
+            <p class="mt-3"></p>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+</div>

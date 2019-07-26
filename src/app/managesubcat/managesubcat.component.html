@@ -1,0 +1,83 @@
+<!-- page details -->
+<div class="breadcrumb-agile mt-4">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/adminpanel">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"> Add/Update Sub-Catagories</li>
+      </ol>
+    </div>
+  </div>
+  <!-- //page details -->
+
+  <!-- manage categories -->
+  <section class="login py-5">
+    <div class="container">
+      <h3 class="heading mb-sm-5 mb-4 text-center">Add/Update Sub-Categories</h3>
+
+      <div class="login-form">
+        <form action="#" method="post">
+            <select name="catid" [(ngModel)]="cat" class="form-control" (change)="fetchSubData()">
+                <option value="">Choose Category</option>
+                <option *ngFor="let x of allCat" value="{{x._id}}"> {{x.Catname}} </option>
+              </select> <br>
+          <div class="row">
+            <div class="col-md-4 text-md-right">
+              <label>Sub-Category: </label>
+            </div>
+            <div class="col-md-8">
+              <input type="text" placeholder="Enter Sub-Category" required="" name="scname" [(ngModel)]="scatname">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4 text-md-right">
+            </div>
+            <div class="col-md-8">
+              <input type="file" name="catpic" (change)="fileSelected($event)">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4 text-md-right">
+            </div>
+            <span *ngIf="!vis">
+          <div class="row mt-3">
+            <div class="col-md-8 offset-md-4">
+              <button class="btn" name="submitcat" (click)="onSubmitsubcat()">Submit</button>
+            </div>
+          </div>
+          </span>
+          <span *ngIf="vis">
+              <img src="uploads/{{scatpic}}" height="100"> <br>
+          <div class="row mt-3">
+            <div class="col-md-8 offset-md-4">
+              <button class="btn" name="updatecat" (click)="onScatupdatedb()">Update</button>
+            </div>
+          </div>
+        </span>
+         </div>
+        </form>
+        {{msg}}
+      </div> <br> <br><br>
+      <div *ngIf="vis1">
+      <h4 id="cen">Already Added Categories!</h4> <br>
+    <table class="table table-striped">
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let x of allSubcat">
+        <td><img src="uploads/{{x.Subcatpic}}" height="60"></td> <!-- add uploads folder to angular.json in assets array -->
+        <td>{{x.Subcatname}}</td>
+        <td><a routerLink="#" (click)="onSubcatupdate(x._id, x.Catid, x.Subcatname, x.Subcatpic)">
+          <button type="button" class="btn btn-primary">Update</button></a></td>
+        <td><a routerLink="#" (click)="onDel(x._id)">
+          <button type="button" class="btn btn-danger" (click)="onDel(x._id)">Delete</button></a></td>
+      </tr>
+    </table>
+  </div>
+ </div>
+</section>
+  <!-- manage catagories -->
