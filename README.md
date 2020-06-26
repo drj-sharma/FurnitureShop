@@ -1,4 +1,4 @@
-# My MEAN STACK summer project, it is focused on the especially backend stuff with mangoDB and NodeJS (Express), for frontend angular is used.
+# MEAN STACK summer project, backend with mangoDB and NodeJS (Express), for frontend angular is used.
 
 # Angularproject
 
